@@ -12,7 +12,7 @@ public class TicTacToeGame
 	 
 	public static void createBoard()
 	{
-		for(int i=1; i<tttBoard.length; i++)
+		for(int i=0; i<tttBoard.length; i++)
 		{
 			tttBoard[i] = '-';
 		}
@@ -28,25 +28,44 @@ public class TicTacToeGame
 		{
 			if(userInput == 'x')
 			{
-				System.out.println("Player chooses x & o is for computer.");
+				System.out.println("Player chooses x & o is for computer.\n");
 			}
 			else
 			{
-				System.out.println("Player chooses o & x is for computer.");
+				System.out.println("Player chooses o & x is for computer.\n");
 			}
 		}
 		else
 		{
-			System.out.println("Invalid Input ! Try again.");
+			System.out.println("Invalid Input ! Try again.\n");
 			userInput();
 		}
 	}
 	
+	static void showBoard()
+	{
+		System.out.println("|---|---|---|");
+		System.out.println("| " + tttBoard[0] + " | "
+						+ tttBoard[1] + " | " + tttBoard[2]
+						+ " |");
+		System.out.println("|-----------|");
+		System.out.println("| " + tttBoard[3] + " | "
+						+ tttBoard[4] + " | " + tttBoard[5]
+						+ " |");
+		System.out.println("|-----------|");
+		System.out.println("| " + tttBoard[6] + " | "
+						+ tttBoard[7] + " | " + tttBoard[8]
+						+ " |");
+		System.out.println("|---|---|---|");
+	}
 	
 	public static void main(String[] args)
 	{
-		//Calling the method.
+		//Calling the createBoard method.
 		createBoard();
+		//Calling userInput method.
 		userInput();
+		//calling ShowBoard method.
+		showBoard();
 	}
 }
