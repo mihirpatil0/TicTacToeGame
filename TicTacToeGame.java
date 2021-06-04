@@ -45,18 +45,34 @@ public class TicTacToeGame
 	static void showBoard()
 	{
 		System.out.println("|---|---|---|");
-		System.out.println("| " + tttBoard[0] + " | "
-						+ tttBoard[1] + " | " + tttBoard[2]
+		System.out.println("| " + tttBoard[1] + " | "
+						+ tttBoard[2] + " | " + tttBoard[3]
 						+ " |");
 		System.out.println("|-----------|");
-		System.out.println("| " + tttBoard[3] + " | "
-						+ tttBoard[4] + " | " + tttBoard[5]
+		System.out.println("| " + tttBoard[4] + " | "
+						+ tttBoard[5] + " | " + tttBoard[6]
 						+ " |");
 		System.out.println("|-----------|");
-		System.out.println("| " + tttBoard[6] + " | "
-						+ tttBoard[7] + " | " + tttBoard[8]
+		System.out.println("| " + tttBoard[7] + " | "
+						+ tttBoard[8] + " | " + tttBoard[9]
 						+ " |");
 		System.out.println("|---|---|---|");
+	}
+	
+	/*Before user enters his choice this board will get displayed 
+	so that will help him to choose in which block to enter the x or o*/ 
+	static void beforeMoveBoard()
+	{	
+		int REDIX=10;
+		System.out.println("\n");
+		for( int i=0; i<10; i++)
+	    {
+			if (tttBoard[i] !='x' && tttBoard[i] !='o') 
+	        {
+				tttBoard[i] = Character.forDigit(i,REDIX);
+	        }
+		}
+		showBoard();
 	}
 	
 	public static void main(String[] args)
@@ -67,5 +83,7 @@ public class TicTacToeGame
 		userInput();
 		//calling ShowBoard method.
 		showBoard();
+		//calling beforemoveBoard method.
+		beforeMoveBoard();
 	}
 }
