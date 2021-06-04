@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class TicTacToeGame 
 {
 	static char[] tttBoard = new char[10];
+	static Scanner scanner;
+	static char userInput;
 	
 	/*This method create board.
 	0th index ignored to make it user friendly.
@@ -21,9 +23,9 @@ public class TicTacToeGame
 	//Asking user to input X Or O.
 	public static void userInput()
 	{
-		Scanner scanner = new Scanner(System.in);
+		scanner = new Scanner(System.in);
 		System.out.println("Enter the character x or o");
-		char userInput = scanner.next().charAt(0);
+		userInput = scanner.next().charAt(0);
 		if( userInput == 'x' || userInput == 'o' )
 		{
 			if(userInput == 'x')
@@ -75,6 +77,25 @@ public class TicTacToeGame
 		showBoard();
 	}
 	
+
+	//after user input checking the block is empty or not if empty assign the value. 
+	public static void userMove() 
+	{   
+	    System.out.println("\nEnter a slot number :\n");
+	    int nmb = scanner.nextInt();
+	    
+	    if (nmb > 0 && nmb <= 9 && tttBoard[nmb]!='x' && tttBoard[nmb]!='o')
+	    {
+	    	tttBoard[nmb]=userInput;
+	    	beforeMoveBoard();	
+	    }
+	    else
+	    {
+	    	System.out.println("Invalid input");
+	    	userMove();
+	    }
+	}
+	
 	public static void main(String[] args)
 	{
 		//Calling the createBoard method.
@@ -85,5 +106,7 @@ public class TicTacToeGame
 		showBoard();
 		//calling beforemoveBoard method.
 		beforeMoveBoard();
+		//Calling userMove method.
+		userMove();
 	}
 }
